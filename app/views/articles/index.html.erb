@@ -1,0 +1,40 @@
+<h1>  Mes Articles  </h1>
+
+<style>
+  ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center; /* Aligne la checkbox avec le texte */
+    gap: 8px; /* Espacement entre la checkbox et le texte */
+  }
+
+  a {
+    text-decoration: none; /* Supprime le soulignement du lien */
+    color: inherit; /* Garde la couleur du texte par défaut */
+  }
+
+  /* Empêche la sélection du texte lors du clic */
+  label {
+    cursor: default;
+    user-select: none;
+  }
+
+  /* Diminue l'opacité de la checkbox pour montrer qu'elle est inactive */
+  input[type="checkbox"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+</style>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+        <%= link_to article.title, article_path(article) %>
+      </label>
+    </li>
+  <% end %>
+</ul>
